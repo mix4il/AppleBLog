@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <title>@ViewData["Title"] - Админ панель</title>
+</head>
+<body>
+    <header>
+        <a asp-controller="Home" asp-action="Index" class="logo">
+            <img src="~/image/free-icon-apple-retro-badge-27779.png" alt="">
+            <p>Все о Apple</p>
+        </a>
+        <nav>
+            <a href="./Iphones.html" class="nav-list-item">IPhone</a>
+            <a href="./iPads.html" class="nav-list-item">IPad</a>
+            <a href="" class="nav-list-item">MacBook</a>
+            <a href="./advice.html" class="nav-list-item">Советы</a>
+        </nav>
+        <a class="sign-in" href="./Auth.html">
+            <img src="~/image/user-interface.png" alt="">
+        </a>
+    </header>
+    <main>
+        <section class="admin-panel">
+            <div class="admin-panel__toolbox">
+                <ul class="admin-panel__items">
+                    <a asp-controller="Admin" asp-action="Create" class="admin-panel__item">Создать статью</a>
+                    <a asp-controller="Admin" asp-action="Edit" class="admin-panel__item">Редактировать статью</a>
+                    <a asp-controller="Admin" asp-action="Delete" class="admin-panel__item">Удалить статью</a>
+                </ul>
+            </div>
+            <div class="admin-panel__container">
+                @RenderBody()
+            </div>
+        </section>
+    </main>
+</body>
+</html>

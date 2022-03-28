@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Apple_Site.Models.Article>
+@{
+    //ViewData["Title"] = "Список смартфонов";
+    Layout = "_Layout";
+}
+
+<aside class="section-popular">
+    <h1 class="section-name">
+        Популярные темы
+    </h1>
+    <div class="popular-list">
+        <div class="popular-list-item">IPhone13</div>
+        <div class="popular-list-item">Конференция Apple 2021</div>
+        <div class="popular-list-item">IPad Mini</div>
+        <div class="popular-list-item">MacBook Pro 2020</div>
+    </div>
+</aside>
+<section class="section-content">
+    @await Html.PartialAsync("_GetArticles", Model)
+</section>
+<aside class="search-panel">
+    <input type="text" placeholder="Поиск статьи..." id="search-box">
+    <div class="filter">
+        <div class="title">Дата добавления статьи</div>
+        <label for="">От</label>
+        <input type="text">
+        <label for="">До</label>
+        <input type="text">
+    </div>
+
+    <img src="~/image/premium-icon-up-arrrows-5245623.png" id="scroll-top" hidden>
+
+    <label for="checkbox">Есть в закладках </label>
+    <input type="checkbox">
+    <button class="btn">Начать поиск</button>
+</aside>
+

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>@ViewData["Title"] - AppleBlog</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="~/image/free-icon-apple-retro-badge-27779.png" alt="">
+            <p>Все о Apple</p>
+        </div>
+        <nav>
+            <a class="nav-list-item" asp-area="" asp-controller="Home" asp-action="Iphones">Iphone</a>
+            <a class="nav-list-item" asp-area="" asp-controller="Home" asp-action="Iphones">MacBook</a>
+            <a class="nav-list-item" asp-area="" asp-controller="Home" asp-action="Iphones">Советы</a>
+            <a class="nav-list-item" asp-area="" asp-controller="Admin" asp-action="Create">Админ панель</a>
+        </nav>
+        <a class="sign-in" asp-controller="Auth" asp-action="Registration">
+            <img src="~/image/user-interface.png" alt="Регистрация">
+        </a>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

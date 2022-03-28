@@ -1,0 +1,36 @@
+﻿@model Apple_Site.Models.Article
+
+@{
+    ViewData["Title"] = "Создание записи";
+    Layout = "~/Views/_AdminLayout.cshtml";
+}
+
+<form asp-action="Create" asp-controller="Admin" enctype="multipart/form-data">
+    <div class="form-control">
+        <label asp-for="Title">Название статьи</label>
+        <input type="text" asp-for="Title" placeholder="Введите название статьи" />
+    </div>
+    <div class="form-control">
+        <label asp-for="Description">Краткое описание</label>
+        <input type="text" asp-for="Description" placeholder="Введите краткое описание" />
+    </div>
+    <div class="form-control">
+        <label asp-for="Tag">Введите тег</label>
+        <input type="text" asp-for="Tag" placeholder="Введите тег" />
+    </div>
+    <div class="form-control">
+        <label asp-for="Content">Введите контент</label>
+        <input type="text" asp-for="Content" placeholder="Введите контент" />
+    </div>
+    <div class="form-control">
+        <label asp-for="ImageFile">Введите контент</label>
+        <input type="file" asp-for="ImageFile" placeholder="Введите контент" accept="image/*"/>
+    </div>
+    <div class="form-control">
+        <label asp-for="CreateTime">Введите время создания</label>
+        <input type="date" asp-for="CreateTime" placeholder="Введите название статьи" />
+    </div>
+    <button class="btn" type="onSubmit">
+        Отправить статью
+    </button>
+</form>

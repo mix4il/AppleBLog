@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Apple_Site.Migrations
 {
-    public partial class Article : Migration
+    public partial class DeployDb2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,7 @@ namespace Apple_Site.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Tag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageName = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

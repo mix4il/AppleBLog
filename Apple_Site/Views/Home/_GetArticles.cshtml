@@ -1,19 +1,14 @@
 ﻿@model IEnumerable<Apple_Site.Models.Article>
-@if (Model.Count() > 0)
-{
     @foreach (Article article in Model)
     {
-        <div class="content-card">
-            <h1 class="title-card">@article.Title</h1>
-            <img src="@("/image/"+ article.ImageName)" width="100%" alt="">
-            <p>
-                @article.Description
-            </p>
-            <a href="./article-se3.html" class="card-link">Читать далее...</a>
-        </div>
+<div class="content-card">
+    <h1 class="title-card">@article.Title</h1>
+    <img src="@("/image/"+ article.ImageName)" width="100%" alt="">
+    <p>
+        @article.Description
+    </p>
+    @Html.ActionLink("Читать далее", "GetArticle", "Home", new { id = article.Id }, new { @class = "card-link" });
+    <h5 style="margin-top:10px">Дата добавления статьи @article.CreateTime.ToString("yyyy-MM-dd")</h5>
+    <h4>Тег: @article.Tag</h4>
+</div>
     }
- }
-else
-{
-    <h3>Список постов пуст</h3>
-}

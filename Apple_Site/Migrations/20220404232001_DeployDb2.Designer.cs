@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Apple_Site.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220328151800_AddNewTable")]
-    partial class AddNewTable
+    [Migration("20220404232001_DeployDb2")]
+    partial class DeployDb2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,8 +37,8 @@ namespace Apple_Site.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Tag")
                         .HasColumnType("nvarchar(max)");

@@ -166,7 +166,7 @@ main {
 
 .search-panel {
     flex-grow: 1;
-    height: 300px;
+    height: 500px;
     width: 25%;
     padding: 50px;
     background: rgb(197, 190, 190);
@@ -188,6 +188,17 @@ label {
 
 #search-box {
     padding: 15px;
+    width:300px;
+    font-style: inherit;
+    font-size: 1.5rem;
+    border: 3px solid rgb(230, 114, 114);
+    border-radius: 10px;
+}
+
+
+.search-boxes {
+    padding: 15px;
+    width: 300px;
     font-style: inherit;
     font-size: 1.5rem;
     border: 3px solid rgb(230, 114, 114);

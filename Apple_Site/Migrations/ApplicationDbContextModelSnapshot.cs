@@ -35,8 +35,8 @@ namespace Apple_Site.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Tag")
                         .HasColumnType("nvarchar(max)");

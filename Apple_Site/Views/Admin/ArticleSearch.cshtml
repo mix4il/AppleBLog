@@ -1,0 +1,36 @@
+﻿@model Apple_Site.Models.Article
+
+<form asp-action="Edit" asp-controller="Admin" enctype="multipart/form-data">
+    <div class="form-control" hidden>
+        <label asp-for="Id"></label>
+        <input type="text" asp-for="Id" placeholder="Введите название статьи" value=@Model.Id />
+    </div>
+    <div class="form-control">
+        <label asp-for="Title"></label>
+        <input type="text" asp-for="Title" placeholder="Введите название статьи" value=@Model.Title />
+    </div>
+    <div class="form-control">
+        <label asp-for="Description">Краткое описание</label>
+        <input type="text" asp-for="Description" placeholder="Введите краткое описание" value=@Model.Description />
+    </div>
+    <div class="form-control">
+        <label asp-for="Tag">Введите тег</label>
+        <input type="text" asp-for="Tag" placeholder="Введите тег" value=@Model.Tag />
+    </div>
+    <div class="form-control">
+        <label asp-for="Content">Введите контент</label>
+        <input type="text" asp-for="Content" placeholder="Введите контент" value=@Model.Content />
+    </div>
+    <div class="form-control">
+        <label asp-for="ImageFile">Введите контент</label>
+        <input type="file" asp-for="ImageFile" placeholder="Введите контент" accept="image/*" />
+    </div>
+    <div class="form-control">
+        <label asp-for="CreateTime">Введите время создания</label>
+        <input type="date" asp-for="CreateTime" placeholder="Введите название статьи" value="@Model.CreateTime.ToString("yyyy-MM-dd")" />
+    </div>
+    <button class="btn" type="Submit">
+        Редактировать статью
+    </button>
+</form>
+

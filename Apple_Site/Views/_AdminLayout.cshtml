@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
+          rel="Stylesheet" type="text/css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
     <title>@ViewData["Title"] - Админ панель</title>
 </head>
 <body>
@@ -33,7 +36,6 @@
                 <ul class="admin-panel__items">
                     <a asp-controller="Admin" asp-action="Create" class="admin-panel__item">Создать статью</a>
                     <a asp-controller="Admin" asp-action="Edit" class="admin-panel__item">Редактировать статью</a>
-                    <a asp-controller="Admin" asp-action="Delete" class="admin-panel__item">Удалить статью</a>
                 </ul>
             </div>
             <div class="admin-panel__container">

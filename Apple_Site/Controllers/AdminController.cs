@@ -28,7 +28,6 @@ namespace Apple_Site.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Article art)
         {
- 
                 string wwwRootPath = _hostEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(art.ImageFile.FileName);
                 string extension = Path.GetExtension(art.ImageFile.FileName);
@@ -51,12 +50,45 @@ namespace Apple_Site.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Edit(Article article)
+        public ActionResult ArticleSearch(string name)
         {
-            db.Article.Add(article);
+            var article = db.Article.Where(a => a.Title == name).FirstOrDefault();
+            ViewBag.model = article;
+            return PartialView(article);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> EditAsync(Article article)
+        {
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(article.ImageFile.FileName);
+            string extension = Path.GetExtension(article.ImageFile.FileName);
+            article.ImageName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await article.ImageFile.CopyToAsync(fileStream);
+            }
+            db.Article.Update(article);
             db.SaveChanges();
             return RedirectToAction("Edit");
         }
+
+        public ActionResult AutocompleteSearch(string term)
+        {
+            var models = db.Article.Where(a => a.Title.Contains(term))
+                            .Select(a => new { value = a.Title })
+                            .Distinct();
+
+            return Json(models);
+        }
+
+        public ActionResult IndexSearch()
+        {
+            return View();
+        }
+
+
     }
 }

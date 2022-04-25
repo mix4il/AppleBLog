@@ -6,6 +6,9 @@
 }
 
 <form asp-action="Create" asp-controller="Admin" enctype="multipart/form-data">
+    <div class="form__title">
+        Создание статьи
+    </div>
     <div class="form-control">
         <label asp-for="Title">Название статьи</label>
         <input type="text" asp-for="Title" placeholder="Введите название статьи" />
@@ -14,6 +17,7 @@
         <label asp-for="Description">Краткое описание</label>
         <input type="text" asp-for="Description" placeholder="Введите краткое описание" />
     </div>
+    <div id="results"></div>
     <div class="form-control">
         <label asp-for="Tag">Введите тег</label>
         <input type="text" asp-for="Tag" placeholder="Введите тег" />
@@ -24,7 +28,7 @@
     </div>
     <div class="form-control">
         <label asp-for="ImageFile">Введите контент</label>
-        <input type="file" asp-for="ImageFile" placeholder="Введите контент" accept="image/*"/>
+        <input type="file" asp-for="ImageFile" placeholder="Введите контент" accept="image/*" />
     </div>
     <div class="form-control">
         <label asp-for="CreateTime">Введите время создания</label>

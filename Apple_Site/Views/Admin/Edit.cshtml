@@ -1,19 +1,41 @@
-﻿@{ 
+﻿@{
     ViewData["Title"] = "Редактирование записи";
     Layout = "~/Views/_AdminLayout.cshtml";
 }
 
-    <form action="">
-        <div class="form__title">
-            Редактирование статьи
-        </div>
-        <div class="form-control">
-            <label for="title">Название статьи </label>
-            <input type="text" placeholder="Введите название статьи" id="title" name="title" />
-        </div>
-        <button class="btn">
-            Получить статью
-        </button>
-    </form>
-
+<form action="">
+    <div class="form__title">
+        Редактирование статьи
+    </div>
+    <div class="form-control">
+        <label for="title">Название статьи </label>
+    </div>
+    <input type="text" id="i" name="title" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Admin")' />
+    <button class="btn" type="submit" style="margin-top: 30px">
+        Получить статью
+    </button>
+</form>
+<div id="results"></div>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btn').click(function (e) {
+            e.preventDefault();
+            var name = $('#i').val();
+            name=encodeURIComponent(name);
+            $('#results').load('@Url.Action("ArticleSearch", "Admin")?name='+name)
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        console.log("cewc")
+        $("[data-autocomplete-source]").each(function () {
+            console.log("cewcefwfew")
+            var target = $(this);
+            target.autocomplete({ source: target.attr("data-autocomplete-source") });
+        });
+    });
+</script>
 

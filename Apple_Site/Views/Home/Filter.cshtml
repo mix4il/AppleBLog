@@ -1,4 +1,7 @@
-﻿@{
+﻿@model IEnumerable<Apple_Site.Models.Article>
+
+@{
+    //ViewData["Title"] = "Список смартфонов";
     Layout = "_Layout";
 }
 
@@ -14,10 +17,10 @@
     </div>
 </aside>
 <section class="section-content">
-    @Html.Partial("_GetArticles")
+    @Html.Partial("_GetArticles", @Model)
 </section>
 <aside class="search-panel" style="height:500px">
-    <form  method="post">
+    <form method="post">
         <input type="text" name="term" placeholder="Поиск статьи..." id="search-box" style="width:250px">
         <button class="btn" asp-controller="Home" asp-action="Search">Начать поиск</button>
     </form>
@@ -42,43 +45,5 @@
             <input type="submit" value="Фильтр" class="btn btn-default" />
         </div>
     </form>
-
-    <img src="~/image/premium-icon-up-arrrows-5245623221016060.png" id="scroll-top" hidden>
+    <img src="~/image/premium-icon-up-arrrows-5245623.png" id="scroll-top" hidden>
 </aside>
-
-
-<script type="text/javascript">
-    $(function () {
-        var page = 0;
-        var _inCallback = false;
-        function loadItems() {
-            if (page > -1 && !_inCallback) {
-                _inCallback = true;
-                page++;
-
-                $.ajax({
-                    type: 'GET',
-                    url: '/Home/Index/' + page,
-                    success: function (data, textstatus) {
-                        console.log("Выполнили");
-                        console.log(data)
-                        if (data != '') {
-                            $(".section-content").append(data);
-                        }
-                        else {
-                            page = -1;
-                        }
-                        _inCallback = false;
-                    }
-                });
-            }
-        }
-        // обработка события скроллинга
-        $(window).scroll(function () {
-            if ($(window).scrollTop() == $(document).height() - $(window).height() ) {
-                loadItems();
-            }
-           
-        });
-    })
-</script>
